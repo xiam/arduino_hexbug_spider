@@ -7,7 +7,7 @@
 // was also made up based on experimentation.
 #define HEXBUG_DELAY_AFTER_INSTRUCTION 192
 // IR codes and utilities for Hexbug Spider.
-#include "hexbug_spider.h"
+#include <hexbug_spider.h>
 
 // Pin the IR LED is wired to. Must be a PWM pin.
 #define PIN_IR_OUTPUT    3

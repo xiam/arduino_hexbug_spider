@@ -30,14 +30,14 @@ Here's an schematic view of the same setup:
 
 1. Install the [IRDump.h][2] library.
 1. Include the `hexbug_spider.h` file into your main Arduino code, for instance
-   `#include "hexbug_spider.h"`.
+   `#include <hexbug_spider.h>`.
 
 ```c
 // Channel the Hexbug Spider is listenning to ('A' or 'B'), must be defined
 // before including hexbug-spider.h.
 #define HEXBUG_SPIDER_CHANNEL 'A'
 
-#include "hexbug_spider.h"
+#include <hexbug_spider.h>
 
 // Pin the IR LED is wired to. Must be a PWM pin.
 #define PIN_IR_OUTPUT    3
@@ -56,6 +56,9 @@ void loop()
   delay(100);
 }
 ```
+
+Here's a [full example](https://github.com/xiam/arduino_hexbug_spider/tree/master/examples/hexbug).
+
 
 ## License
 

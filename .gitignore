@@ -1,2 +1,3 @@
 .build
-*.sw.
+*.sw?
+*.DS_Store
