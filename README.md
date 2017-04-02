@@ -1,15 +1,40 @@
 # Hexbug spider library for Arduino
 
+![Hexbug Spider](https://content.hexbug.com/images/animation/spider.gif)
+
 This library uses an IR LED to send codes that can be understood by an
 [Hexbug Spider][1].
 
-The IR LED is expected to be wired to your Arduino's pin #3.
+## Wiring everything together
+
+To build this project you'll need:
+
+1. And Arduino board.
+1. An IR LED.
+1. A red LED (optional).
+1. A 200 to 1000 ohm resistor.
+
+Wire one of the PWN pins of the Arduino board (this example uses pin 3) to the
+largest leg of the IR LED, the second leg goes to the longest leg of the red
+LED via the resistor, the second leg of the red LED goes to ground.
+
+Should look like this:
+
+![arduino hexbug spider_bb](https://cloud.githubusercontent.com/assets/385670/24587747/cbaa2880-1781-11e7-9a43-ff5c65d30013.png)
+
+Here's an schematic view of the same setup:
+
+![arduino hexbug spider_schem](https://cloud.githubusercontent.com/assets/385670/24587746/cba7d21a-1781-11e7-859e-9ca46ed546c1.png)
 
 ## Minimal code example
 
+1. Install the [IRDump.h][2] library.
+1. Include the `hexbug_spider.h` file into your main Arduino code, for instance
+   `#include "hexbug_spider.h"`.
+
 ```c
 // Channel the Hexbug Spider is listenning to ('A' or 'B'), must be defined
-// before including hexbug-spider.h. 
+// before including hexbug-spider.h.
 #define HEXBUG_SPIDER_CHANNEL 'A'
 
 #include "hexbug_spider.h"
@@ -31,12 +56,6 @@ void loop()
   delay(100);
 }
 ```
-
-## How to install
-
-1. Install the [IRDump.h][2] library.
-3. Include the `hexbug_spider.h` file into your main Arduino code, for instance
-   `#include "hexbug_spider.h"`.
 
 ## License
 
