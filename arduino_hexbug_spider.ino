@@ -1,10 +1,10 @@
-// Channel the Hexbug Spider is listenning to ('A' or 'B'). 
+// Channel the Hexbug Spider is listenning to ('A' or 'B').
 #define HEXBUG_SPIDER_CHANNEL 'A'
-// How many times does a rotation code needs to be send to complete
-// a full turn? This number was made up based on experimentation.
+// How many times does a rotation code needs to be send to complete a full
+// turn? This number was made up based on experimentation.
 #define HEXBUG_FULL_ROTATION 18
-// The number of milliseconds to wait after sending an instruction. This
-// number was also made up based on experimentation.
+// The number of milliseconds to wait after sending an instruction. This number
+// was also made up based on experimentation.
 #define HEXBUG_DELAY_AFTER_INSTRUCTION 192
 // IR codes and utilities for Hexbug Spider.
 #include "hexbug_spider.h"
@@ -26,7 +26,7 @@ void loop(void) {
 
   // rotate ~-90seg (90deg ccw).
   hexbug_spider_spin(-90);
-  
+
   // go backward 10 times.
   hexbug_spider_advance(-10);
 

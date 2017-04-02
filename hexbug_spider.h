@@ -1,15 +1,15 @@
 // Grab this libray from https://github.com/xiam/arduino_irdump
-#include <IRDump.h> 
+#include <IRDump.h>
 
 #ifndef HEXBUG_FULL_ROTATION
-// How many times does a rotation code needs to be send to complete
-// a full turn? This number was made up based on experimentation.
+// How many times does a rotation code needs to be send to complete a full
+// turn? This number was made up based on experimentation.
 #define HEXBUG_FULL_ROTATION 18
 #endif
 
 #ifndef HEXBUG_DELAY_AFTER_INSTRUCTION
-// The number of milliseconds to wait after sending an instruction. This
-// number was also made up based on experimentation.
+// The number of milliseconds to wait after sending an instruction. This number
+// was also made up based on experimentation.
 #define HEXBUG_DELAY_AFTER_INSTRUCTION 192
 #endif
 
@@ -103,8 +103,8 @@ void hexbug_spider_backward() {
   hexbug_spider_send(HEXBUG_SPIDER_BACKWARD);
 }
 
-// hexbug_spider_advance goes forward if times > 0 or backward if times < 0. times is the
-// number of times the code is going to be send.
+// hexbug_spider_advance goes forward if times > 0 or backward if times < 0.
+// times is the number of times the code is going to be send.
 void hexbug_spider_advance(int times) {
   int i;
   for (i = abs(times); i > 0; i--) {
@@ -116,13 +116,13 @@ void hexbug_spider_advance(int times) {
   }
 }
 
-// hexbug_spider_spin sends rotation instructions by the number of degrees given,
-// if deg is > 0, this is a clockwise rotation, if deg < 0, this is a counter-clockwise
-// rotation.
+// hexbug_spider_spin sends rotation instructions by the number of degrees
+// given, if deg is > 0, this is a clockwise rotation, if deg < 0, this is a
+// counter-clockwise rotation.
 void hexbug_spider_spin(int deg) {
   int times, i;
   times = int(float(HEXBUG_FULL_ROTATION)*float(float(abs(deg)) / 360.0f));
-  
+
   for (i = 0; i < times; i++) {
     if (deg < 0) {
       hexbug_spider_spin_left();
@@ -136,6 +136,6 @@ void hexbug_spider_spin(int deg) {
 void hexbug_spider_setup_pin(int pin) {
   hexbug_spider_irdump = new IRDump();
   hexbug_spider_pin = pin;
-  
+
   pinMode(hexbug_spider_pin, OUTPUT);
-} 
+}
