@@ -1,5 +1,3 @@
-#include <irdebug.h>
-
 #define HEXBUG_SPIDER_LEAD          1800, 450
 #define HEXBUG_SPIDER_CONTROL_CODE  1800, 900
 #define HEXBUG_SPIDER_B0            350,  550
@@ -23,7 +21,9 @@
 #define HEXBUG_SPIDER_HE    HEXBUG_SPIDER_B0, HEXBUG_SPIDER_B1, HEXBUG_SPIDER_B1, HEXBUG_SPIDER_B1
 #define HEXBUG_SPIDER_HF    HEXBUG_SPIDER_B1, HEXBUG_SPIDER_B1, HEXBUG_SPIDER_B1, HEXBUG_SPIDER_B1
 
+#ifndef HEXBUG_SPIDER_CHANNEL
 #define HEXBUG_SPIDER_CHANNEL 'A'
+#endif
 
 #if HEXBUG_SPIDER_CHANNEL == 'A'
   #define HEXBUG_SPIDER_CONTROLLER_ID      HEXBUG_SPIDER_B1, HEXBUG_SPIDER_B1
@@ -52,29 +52,9 @@
 
 #define HEXBUG_SPIDER_SIGNAL(code) { HEXBUG_SPIDER_LEAD, HEXBUG_SPIDER_CONTROL_CODE, code, HEXBUG_SPIDER_CONTROLLER_ID, HEXBUG_SPIDER_STOP }
 
-static unsigned int hexbug_spider_signal[HEXBUG_SPIDER_SIGNALS][26] = {
+unsigned int hexbug_spider_signal[HEXBUG_SPIDER_SIGNALS][26] = {
   HEXBUG_SPIDER_SIGNAL(BUTTON_RIGHT),
   HEXBUG_SPIDER_SIGNAL(BUTTON_LEFT),
   HEXBUG_SPIDER_SIGNAL(BUTTON_FORWARD),
   HEXBUG_SPIDER_SIGNAL(BUTTON_BACKWARD)
 };
-
-void hexbug_spider_send(int code) {
-  irdebug_send(hexbug_spider_signal[code], HEXBUG_SPIDER_KHZ);
-}
-
-void hexbug_spider_left() {
-  hexbug_spider_send(HEXBUG_SPIDER_LEFT);
-}
-
-void hexbug_spider_right() {
-  hexbug_spider_send(HEXBUG_SPIDER_RIGHT);
-}
-
-void hexbug_spider_forward() {
-  hexbug_spider_send(HEXBUG_SPIDER_FORWARD);
-}
-
-void hexbug_spider_backward() {
-  hexbug_spider_send(HEXBUG_SPIDER_BACKWARD);
-}
