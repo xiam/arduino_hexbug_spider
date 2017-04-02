@@ -5,6 +5,9 @@
 This library uses an IR LED to send codes that can be understood by an
 [Hexbug Spider][1].
 
+If this is the first time you visit this repo I suggest you reading
+[How to control your Hexbug Spider with Arduino](https://medium.com/@xiam/control-your-old-hexbug-spider-with-arduino-fb22983dfc8d).
+
 ## Wiring everything together
 
 To build this project you'll need:
